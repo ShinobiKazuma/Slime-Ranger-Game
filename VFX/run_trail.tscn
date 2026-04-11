@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d3jcvnav6gf2d"]
+
+[sub_resource type="Curve" id="Curve_aljhj"]
+_data = [Vector2(0, 1), 0.0, -2.2553623, 0, 0, Vector2(0.2826087, 0.48314613), -0.33226347, -0.33226347, 0, 0, Vector2(1, 0), -1.9029622, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_37q0a"]
+curve = SubResource("Curve_aljhj")
+
+[sub_resource type="Curve" id="Curve_ux7eq"]
+_data = [Vector2(0.01449275, 0), 0.0, 2.2247193, 0, 0, Vector2(0.5217391, 0.50561804), 0.0, 0.0, 0, 0, Vector2(0.88405794, 0.6292135), 1.6853918, 1.6853918, 0, 0, Vector2(1, 1), 5.582013, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_knwgn"]
+curve = SubResource("Curve_ux7eq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gcob6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 8, 1)
+angular_velocity_min = -15.000016
+angular_velocity_max = 14.999984
+gravity = Vector3(0, 0, 0)
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_knwgn")
+alpha_curve = SubResource("CurveTexture_37q0a")
+
+[node name="RunTrail" type="GPUParticles2D" unique_id=503819842]
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_gcob6")

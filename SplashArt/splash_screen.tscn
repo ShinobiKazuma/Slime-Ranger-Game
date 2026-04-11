@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dmokeu7rr554i"]
+
+[ext_resource type="Script" uid="uid://1rv0k7ccruha" path="res://SplashArt/splash_screen.gd" id="1_c2h60"]
+[ext_resource type="PackedScene" uid="uid://3ysqcdr06584" path="res://scene/start_screen.tscn" id="2_fww2x"]
+[ext_resource type="Texture2D" uid="uid://b37lw74pcp41o" path="res://SplashArt/EnigmaNerveLogoIdea-animation.png" id="2_igwdf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fww2x"]
+atlas = ExtResource("2_igwdf")
+region = Rect2(0, 0, 128, 128)
+
+[node name="SplashScreen" type="Control" unique_id=1432964505]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2h60")
+load_scene = ExtResource("2_fww2x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2062638802]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=702493875]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnigmaNerveLogo" type="TextureRect" parent="ColorRect/CenterContainer" unique_id=1227395791]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = SubResource("AtlasTexture_fww2x")
+stretch_mode = 4

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dqj5knd2uyiug"]
+
+[ext_resource type="Script" uid="uid://c27ualayioqij" path="res://scene/slime.gd" id="1_08lxr"]
+[ext_resource type="Texture2D" uid="uid://0uu1h2t14v25" path="res://Art/Enemy/slime_move-Sheet.png" id="1_bwbrm"]
+[ext_resource type="PackedScene" uid="uid://gdbdb8i062ru" path="res://VFX/slime_pop.tscn" id="3_p3a6y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_08lxr"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3a6y"]
+radius = 7.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p3a6y"]
+load_path = "res://.godot/imported/slime_move-Sheet.png-16a87931b3db836154ba0dd05d1d512c.ctex"
+
+[node name="Slime" type="CharacterBody2D" unique_id=1233222970 groups=["enemy"]]
+top_level = true
+script = ExtResource("1_08lxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2067151795]
+shape = SubResource("CircleShape2D_08lxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=332854160]
+clip_children = 2
+texture = ExtResource("1_bwbrm")
+hframes = 2
+frame = 1
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=145982550]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.933333, 1, 0, 0.411765)
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=1393219205 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1670554948]
+shape = SubResource("CircleShape2D_p3a6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1349015001]
+
+[node name="SlimePop" parent="." unique_id=1689131846 instance=ExtResource("3_p3a6y")]
+scale = Vector2(0.3, 0.3)
+texture = SubResource("CompressedTexture2D_p3a6y")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

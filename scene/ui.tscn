@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://buswgi6gwvlpp"]
+
+[ext_resource type="Script" uid="uid://31yfs8egi1wq" path="res://scene/ui.gd" id="1_onfsl"]
+[ext_resource type="Theme" uid="uid://dqfge2wjronpo" path="res://slimetheme.tres" id="2_s2f8l"]
+[ext_resource type="AudioStream" uid="uid://cksejjnmva3fo" path="res://Music/GameOver.wav" id="3_vqisl"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_ytdjg"]
+[ext_resource type="Texture2D" uid="uid://mkai206xn0vw" path="res://Art/dodge_button_normall.png" id="6_0oc5v"]
+[ext_resource type="Texture2D" uid="uid://f4xnjtikqfxy" path="res://Art/fire.png" id="7_d87ij"]
+[ext_resource type="Texture2D" uid="uid://xow5en0cskx" path="res://Art/dodge_button_pressedl.png" id="7_vqisl"]
+
+[sub_resource type="Gradient" id="Gradient_0oc5v"]
+offsets = PackedFloat32Array(0.16356878, 0.52416354, 1)
+colors = PackedColorArray(0.11, 0.008799998, 0.008799998, 1, 0.23, 0.20316666, 0, 1, 0.063999996, 0.24, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqisl"]
+gradient = SubResource("Gradient_0oc5v")
+width = 128
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_xcrjw"]
+offsets = PackedFloat32Array(0.85873604, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n2xhd"]
+gradient = SubResource("Gradient_xcrjw")
+width = 128
+height = 32
+fill = 2
+fill_from = Vector2(0.508547, 0.4957265)
+
+[sub_resource type="Gradient" id="Gradient_s2f8l"]
+interpolation_mode = 2
+colors = PackedColorArray(0.93, 0.03720002, 0.03720002, 0.7529412, 0, 0.52, 0.12133334, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kee8w"]
+gradient = SubResource("Gradient_s2f8l")
+width = 128
+height = 32
+fill = 1
+fill_from = Vector2(-1, -1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xh8xk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kee8w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2f8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onfsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqisl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0oc5v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajaei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytdjg"]
+
+[node name="UI" type="Control" unique_id=580484673]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_onfsl")
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1099700557]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 135.0
+offset_bottom = 44.0
+max_value = 3.0
+value = 3.0
+texture_under = SubResource("GradientTexture2D_vqisl")
+texture_over = SubResource("GradientTexture2D_n2xhd")
+texture_progress = SubResource("GradientTexture2D_kee8w")
+
+[node name="gameover" type="ColorRect" parent="." unique_id=1218120007]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.38, 0.38, 0.38, 0.447059)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gameover" unique_id=1998913132]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -38.5
+offset_right = 52.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="gameover/VBoxContainer" unique_id=1060549556]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GAME OVER..."
+
+[node name="GameoverHighscoreLabel" type="Label" parent="gameover/VBoxContainer" unique_id=564073866]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Highscore: 0"
+
+[node name="RetryButton" type="Button" parent="gameover/VBoxContainer" unique_id=2126920999]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.870588, 0.803922, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.811765, 0.784314, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xh8xk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kee8w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s2f8l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_onfsl")
+text = "RETRY"
+
+[node name="QuitButton" type="Button" parent="gameover/VBoxContainer" unique_id=919247283]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7047, 0.87, 0.80388, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.81, 0.783, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vqisl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0oc5v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ajaei")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ytdjg")
+text = "QUIT"
+
+[node name="ScoreBox" type="HBoxContainer" parent="." unique_id=1015880595]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 226.0
+offset_top = 5.0
+offset_right = 476.0
+offset_bottom = 71.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="ScoreBox" unique_id=1163540587]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme = ExtResource("2_s2f8l")
+text = "Score: 0"
+
+[node name="HighscoreLabel" type="Label" parent="ScoreBox" unique_id=113247650]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("2_s2f8l")
+text = "Highscore: 0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1471358771]
+stream = ExtResource("3_vqisl")
+
+[node name="FireTouchButton" type="TouchScreenButton" parent="." unique_id=1514453636]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(845, 440)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("7_d87ij")
+action = "fire"
+
+[node name="VirtualJoystick" parent="." unique_id=1570651414 instance=ExtResource("5_ytdjg")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.588235)
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+offset_left = 8.0
+offset_top = -122.0
+offset_right = 280.0
+offset_bottom = 93.0
+scale = Vector2(0.5, 0.5)
+visibility_mode = 2
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"
+
+[node name="DodgeTouchButton" type="TouchScreenButton" parent="." unique_id=668029790]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(768, 455)
+texture_normal = ExtResource("6_0oc5v")
+texture_pressed = ExtResource("7_vqisl")
+action = "dodge"
+
+[connection signal="pressed" from="gameover/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="gameover/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

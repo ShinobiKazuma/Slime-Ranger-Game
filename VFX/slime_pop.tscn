@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://gdbdb8i062ru"]
+
+[ext_resource type="Texture2D" uid="uid://0uu1h2t14v25" path="res://Art/Enemy/slime_move-Sheet.png" id="1_48kvt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_idjsc"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ndsfb"]
+_data = [Vector2(0, 1), 0.0, 1.915575, 0, 0, Vector2(0.13688213, 1), 0.0, 0.0, 0, 0, Vector2(0.66539925, 0.7826433), -1.6131172, -1.6131172, 0, 0, Vector2(1, 0.016719818), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_lxn0r"]
+curve = SubResource("Curve_ndsfb")
+
+[sub_resource type="Curve" id="Curve_m08bx"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x7fde"]
+curve = SubResource("Curve_m08bx")
+
+[sub_resource type="Curve" id="Curve_6sacc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7452471, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4plc5"]
+curve = SubResource("Curve_6sacc")
+
+[sub_resource type="Curve" id="Curve_i2et0"]
+_limits = [0.0, 1000.0, 0.0, 1.0]
+_data = [Vector2(0, 641.0448), 0.0, 0.0, 0, 0, Vector2(0.10646388, 262.68658), -2158.9338, -2158.9338, 0, 0, Vector2(1, 0.96894896), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fqyuq"]
+curve = SubResource("Curve_i2et0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_667gg"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 15.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 999.99994
+velocity_limit_curve = SubResource("CurveTexture_fqyuq")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_curve = SubResource("CurveTexture_4plc5")
+alpha_curve = SubResource("CurveTexture_lxn0r")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.19999997
+hue_variation_curve = SubResource("CurveTexture_x7fde")
+
+[node name="SlimePop" type="GPUParticles2D" unique_id=1689131846]
+material = SubResource("CanvasItemMaterial_idjsc")
+use_parent_material = true
+emitting = false
+amount = 150
+texture = ExtResource("1_48kvt")
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_667gg")

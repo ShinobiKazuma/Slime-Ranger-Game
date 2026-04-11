@@ -1,0 +1,47 @@
+[gd_resource type="Theme" format=3 uid="uid://dqfge2wjronpo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01rkt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekamj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqcyu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xh287"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_koqaj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01rkt"]
+content_margin_left = 22.0
+content_margin_top = 14.0
+content_margin_right = 22.0
+content_margin_bottom = 18.0
+bg_color = Color(0.0406, 0.21, 0.0252, 0.45098)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.01, 0.01, 0.01, 0.733333)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[resource]
+default_font_size = 36
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.822322, 0.797985, 0.0516043, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.401894, 0.387759, 0.016017, 1)
+Button/constants/outline_size = 3
+Button/styles/disabled = SubResource("StyleBoxEmpty_01rkt")
+Button/styles/focus = SubResource("StyleBoxEmpty_ekamj")
+Button/styles/hover = SubResource("StyleBoxEmpty_iqcyu")
+Button/styles/normal = SubResource("StyleBoxEmpty_xh287")
+Button/styles/pressed = SubResource("StyleBoxEmpty_koqaj")
+Label/colors/font_color = Color(0.426667, 1, 0.2, 1)
+Label/colors/font_outline_color = Color(0.4189, 0.59, 0.535818, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.517647)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/font_sizes/font_size = 24
+Label/styles/normal = SubResource("StyleBoxFlat_01rkt")

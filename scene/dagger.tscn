@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cyv62xqw8ueu0"]
+
+[ext_resource type="Texture2D" uid="uid://cn2kjmafagw0q" path="res://Art/Character/dagger.png" id="1_382jm"]
+[ext_resource type="Script" uid="uid://cbt5qdd4usq77" path="res://scene/dagger.gd" id="1_f7g8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7g8q"]
+size = Vector2(8, 16)
+
+[node name="Dagger" type="Area2D" unique_id=1630593435 groups=["projectile"]]
+light_mask = 4
+visibility_layer = 2
+rotation = -1.5708
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_f7g8q")
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=838329005]
+rotation = -1.5708
+texture = ExtResource("1_382jm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145651570]
+top_level = true
+shape = SubResource("RectangleShape2D_f7g8q")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
